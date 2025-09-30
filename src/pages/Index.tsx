@@ -6,7 +6,7 @@ import {
   addMultipleToGoogleCalendar,
   downloadICSFile,
 } from "@/utils/calendarUtils";
-import { CalendarPlus, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 interface Lecture {
@@ -171,7 +171,7 @@ const Index = () => {
             Imperial Computing Timetable
           </h1>
           <p className="text-muted-foreground text-lg mb-6">
-            Add your lecture schedule to Google Calendar
+            Download and keep your lecture timetable
           </p>
 
           {/* Google Sign-In Component */}
@@ -205,17 +205,16 @@ const Index = () => {
                 From {selectedModules.length} selected module
                 {selectedModules.length !== 1 ? "s" : ""}
               </p>
-              <p className="text-xs text-muted-foreground mb-4">
-                Add to Google Calendar or download an .ics file for any calendar
-                app
-              </p>
+              {/* <p className="text-xs text-muted-foreground mb-4">
+                Download an .ics file for any calendar app
+              </p> */}
               {/* {!signedInUser && (
                 <p className="text-sm text-yellow-600 dark:text-yellow-400 mb-4">
                   ⚠️ Please sign in with Google to add events to your calendar
                 </p>
               )} */}
               <div className="space-y-3">
-                <Button
+                {/* <Button
                   onClick={handleAddAllToCalendar}
                   size="lg"
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
@@ -223,7 +222,7 @@ const Index = () => {
                 >
                   <CalendarPlus className="mr-2 h-5 w-5" />
                   Add to Calendar
-                </Button>
+                </Button> */}
                 <Button
                   onClick={handleDownloadICS}
                   variant="outline"
