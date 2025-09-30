@@ -94,20 +94,52 @@ export const generateICSContent = (
     "METHOD:PUBLISH",
     `X-WR-CALNAME:Imperial College${modulesText}`,
     "X-WR-TIMEZONE:Europe/London",
-    "X-WR-CALDESC:Imperial College London lecture calendar export",
+    "X-WR-CALDESC:Imperial College London lecture calendar export - Repeating for 8 weeks",
   ].join("\r\n");
 
+  // Group lectures by their weekly pattern (day + time + module)
+  const lecturePatterns = new Map<string, Lecture>();
+
   lectures.forEach((lecture) => {
+    const lectureDate = new Date(lecture.date);
+    const dayOfWeek = lectureDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    const patternKey = `${dayOfWeek}-${lecture.time}-${lecture.module}`;
+
+    // Only keep the first occurrence of each pattern
+    if (!lecturePatterns.has(patternKey)) {
+      lecturePatterns.set(patternKey, lecture);
+    }
+  });
+
+  lecturePatterns.forEach((lecture) => {
     const [startTime, endTime] = lecture.time.split(" - ");
+
+    // Calculate the start date for the second week of October 2025
+    const secondWeekOfOctober2025 = new Date("2025-10-13"); // Monday of second week
+    const lectureDate = new Date(lecture.date);
+    const dayOfWeek = lectureDate.getDay();
+
+    // Adjust to the correct day of the week in the second week of October 2025
+    const startDate = new Date(secondWeekOfOctober2025);
+    const dayOffset = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // Convert Sunday=0 to Saturday=6, Monday=1 to Monday=0
+    startDate.setDate(startDate.getDate() + dayOffset);
+
     const startDateTime = new Date(
-      `${lecture.date}T${convertTo24Hour(startTime)}`
+      `${startDate.toISOString().split("T")[0]}T${convertTo24Hour(startTime)}`
     );
-    const endDateTime = new Date(`${lecture.date}T${convertTo24Hour(endTime)}`);
+    const endDateTime = new Date(
+      `${startDate.toISOString().split("T")[0]}T${convertTo24Hour(endTime)}`
+    );
+
+    // Calculate the until date (8 weeks from start date)
+    const untilDate = new Date(startDate);
+    untilDate.setDate(untilDate.getDate() + 7 * 7); // 7 weeks after start (8 weeks total)
 
     const uid = generateUID();
     const created = formatDateForICS(now);
     const dtstart = formatDateForICS(startDateTime);
     const dtend = formatDateForICS(endDateTime);
+    const until = formatDateForICS(untilDate);
 
     icsContent +=
       "\r\n" +
@@ -117,9 +149,10 @@ export const generateICSContent = (
         `DTSTAMP:${created}`,
         `DTSTART:${dtstart}`,
         `DTEND:${dtend}`,
+        `RRULE:FREQ=WEEKLY;COUNT=8`,
         `SUMMARY:${escapeICSText(lecture.title)}`,
         `DESCRIPTION:${escapeICSText(
-          `Module: ${lecture.module}\nRoom: ${lecture.room}`
+          `Module: ${lecture.module}\nRoom: ${lecture.room}\nRepeats weekly for 8 weeks starting from second week of October 2025`
         )}`,
         `LOCATION:${escapeICSText(lecture.room)}`,
         "STATUS:CONFIRMED",
@@ -146,7 +179,7 @@ export const downloadICSFile = (
 
   const modulesText =
     selectedModules.length > 0 ? `_${selectedModules.join("_")}` : "";
-  const defaultFilename = `imperial_calendar${modulesText}_${
+  const defaultFilename = `imperial_calendar_8weeks${modulesText}_${
     new Date().toISOString().split("T")[0]
   }.ics`;
   link.download = filename || defaultFilename;

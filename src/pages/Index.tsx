@@ -153,9 +153,9 @@ const Index = () => {
     try {
       downloadICSFile(lectures, selectedModules);
       toast.success(
-        `Calendar file downloaded with ${lectures.length} lecture${
+        `Calendar file downloaded with ${lectures.length} lecture pattern${
           lectures.length !== 1 ? "s" : ""
-        }!`
+        } repeating for 8 weeks!`
       );
     } catch (error) {
       console.error("Error downloading ICS file:", error);
@@ -201,7 +201,7 @@ const Index = () => {
                 Ready to add {lectures.length} lecture
                 {lectures.length !== 1 ? "s" : ""}
               </p>
-              <p className="text-sm text-muted-foreground mb-4">
+              <p className="text-sm text-muted-foreground mb-2">
                 From {selectedModules.length} selected module
                 {selectedModules.length !== 1 ? "s" : ""}
               </p>
