@@ -1,8 +1,9 @@
-import { CalendarPlus } from "lucide-react";
 import { useState } from "react";
+import { ModuleSelector } from "@/components/ModuleSelector";
+import { Button } from "@/components/ui/button";
+import { CalendarPlus } from "lucide-react";
+import { addMultipleToGoogleCalendar } from "@/utils/calendarUtils";
 import { toast } from "sonner";
-import { ModuleSelector } from "../components/ModuleSelector";
-import { addMultipleToGoogleCalendar } from "../utils/calendarUtils";
 
 interface Lecture {
   id: string;
@@ -21,7 +22,7 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-06",
       time: "10:00 AM - 12:00 PM",
       room: "Huxley 340",
-      module: "Algorithms",
+      module: "Algorithms"
     },
     {
       id: "2",
@@ -29,7 +30,7 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-08",
       time: "2:00 PM - 4:00 PM",
       room: "Huxley 340",
-      module: "Algorithms",
+      module: "Algorithms"
     },
     {
       id: "3",
@@ -37,8 +38,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-13",
       time: "10:00 AM - 12:00 PM",
       room: "Huxley 340",
-      module: "Algorithms",
-    },
+      module: "Algorithms"
+    }
   ],
   databases: [
     {
@@ -47,7 +48,7 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-07",
       time: "9:00 AM - 11:00 AM",
       room: "Huxley 217",
-      module: "Databases",
+      module: "Databases"
     },
     {
       id: "5",
@@ -55,8 +56,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-10",
       time: "1:00 PM - 3:00 PM",
       room: "Huxley 217",
-      module: "Databases",
-    },
+      module: "Databases"
+    }
   ],
   networks: [
     {
@@ -65,8 +66,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-09",
       time: "11:00 AM - 1:00 PM",
       room: "Huxley 308",
-      module: "Computer Networks",
-    },
+      module: "Computer Networks"
+    }
   ],
   os: [
     {
@@ -75,8 +76,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-06",
       time: "3:00 PM - 5:00 PM",
       room: "Huxley 311",
-      module: "Operating Systems",
-    },
+      module: "Operating Systems"
+    }
   ],
   ai: [
     {
@@ -85,8 +86,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-11",
       time: "10:00 AM - 12:00 PM",
       room: "Huxley 341",
-      module: "Artificial Intelligence",
-    },
+      module: "Artificial Intelligence"
+    }
   ],
   graphics: [
     {
@@ -95,8 +96,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-12",
       time: "2:00 PM - 4:00 PM",
       room: "Huxley 344",
-      module: "Computer Graphics",
-    },
+      module: "Computer Graphics"
+    }
   ],
   security: [
     {
@@ -105,8 +106,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-14",
       time: "9:00 AM - 11:00 AM",
       room: "Huxley 413",
-      module: "Computer Security",
-    },
+      module: "Computer Security"
+    }
   ],
   "software-eng": [
     {
@@ -115,18 +116,18 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-15",
       time: "1:00 PM - 3:00 PM",
       room: "Huxley 345",
-      module: "Software Engineering",
-    },
-  ],
+      module: "Software Engineering"
+    }
+  ]
 };
 
 const Index = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
-
+  
   // Aggregate lectures from all selected modules
-  const lectures = selectedModules
-    .flatMap((moduleId) => mockLectures[moduleId] || [])
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  const lectures = selectedModules.flatMap(
+    (moduleId) => mockLectures[moduleId] || []
+  ).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
   const handleAddAllToCalendar = () => {
     if (lectures.length === 0) {
@@ -134,11 +135,7 @@ const Index = () => {
       return;
     }
     addMultipleToGoogleCalendar(lectures);
-    toast.success(
-      `All ${lectures.length} lecture${
-        lectures.length !== 1 ? "s" : ""
-      } added to calendar!`
-    );
+    toast.success(`All ${lectures.length} lecture${lectures.length !== 1 ? 's' : ''} added to calendar!`);
   };
 
   return (
@@ -157,39 +154,33 @@ const Index = () => {
           <label className="block text-sm font-medium mb-2 text-foreground">
             Select Modules
           </label>
-          <ModuleSelector
-            value={selectedModules}
-            onChange={setSelectedModules}
-          />
+          <ModuleSelector value={selectedModules} onChange={setSelectedModules} />
         </div>
 
         {selectedModules.length > 0 && (
           <div className="text-center space-y-4">
             <div className="bg-card border border-border rounded-lg p-6 max-w-md mx-auto">
               <p className="text-lg font-medium text-foreground mb-2">
-                Ready to add {lectures.length} lecture
-                {lectures.length !== 1 ? "s" : ""}
+                Ready to add {lectures.length} lecture{lectures.length !== 1 ? 's' : ''}
               </p>
               <p className="text-sm text-muted-foreground mb-4">
-                From {selectedModules.length} selected module
-                {selectedModules.length !== 1 ? "s" : ""}
+                From {selectedModules.length} selected module{selectedModules.length !== 1 ? 's' : ''}
               </p>
-              <button
+              <Button
                 onClick={handleAddAllToCalendar}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 text-lg bg-primary hover:bg-primary/90 text-primary-foreground rounded-md shadow-lg transition-colors"
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
               >
-                <CalendarPlus className="h-5 w-5" />
+                <CalendarPlus className="mr-2 h-5 w-5" />
                 Add to Calendar
-              </button>
+              </Button>
             </div>
           </div>
         )}
 
         {selectedModules.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">
-              Select modules to add their lectures to your calendar.
-            </p>
+            <p className="text-muted-foreground">Select modules to add their lectures to your calendar.</p>
           </div>
         )}
       </div>

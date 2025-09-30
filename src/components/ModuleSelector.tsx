@@ -1,5 +1,8 @@
+import { Button } from "@/components/ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronDown, X } from "lucide-react";
-import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 
 interface ModuleSelectorProps {
   value: string[];
@@ -18,8 +21,6 @@ const modules = [
 ];
 
 export const ModuleSelector = ({ value, onChange }: ModuleSelectorProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   const toggleModule = (moduleId: string) => {
     if (value.includes(moduleId)) {
       onChange(value.filter((id) => id !== moduleId));
@@ -39,51 +40,51 @@ export const ModuleSelector = ({ value, onChange }: ModuleSelectorProps) => {
   const selectedModules = modules.filter((m) => value.includes(m.id));
 
   return (
-    <div className="w-full relative">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between bg-card border border-border hover:border-primary transition-colors h-auto min-h-[2.5rem] py-2 px-3 rounded-md"
-      >
-        <div className="flex flex-wrap gap-1 flex-1 mr-2">
-          {selectedModules.length === 0 ? (
-            <span className="text-muted-foreground">Select modules</span>
-          ) : (
-            selectedModules.map((module) => (
-              <span
-                key={module.id}
-                className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary"
-              >
-                {module.name}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeModule(module.id);
-                  }}
-                  className="ml-1 hover:text-destructive"
-                >
-                  <X className="h-3 w-3" />
-                </button>
-              </span>
-            ))
-          )}
-        </div>
-        <ChevronDown className="h-4 w-4 opacity-50 flex-shrink-0" />
-      </button>
-
-      {isOpen && (
-        <>
-          <div
-            className="fixed inset-0 z-40"
-            onClick={() => setIsOpen(false)}
-          />
-          <div className="absolute w-full mt-1 p-2 bg-popover border border-border rounded-md shadow-md z-50">
+    <div className="w-full">
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            className="w-full justify-between bg-card border-border hover:border-primary transition-colors h-auto min-h-[2.5rem] py-2"
+          >
+            <div className="flex flex-wrap gap-1 flex-1 mr-2">
+              {selectedModules.length === 0 ? (
+                <span className="text-muted-foreground">Select modules</span>
+              ) : (
+                selectedModules.map((module) => (
+                  <Badge
+                    key={module.id}
+                    variant="secondary"
+                    className="bg-primary/10 text-primary hover:bg-primary/20"
+                  >
+                    {module.name}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeModule(module.id);
+                      }}
+                      className="ml-1 hover:text-destructive"
+                    >
+                      <X className="h-3 w-3" />
+                    </button>
+                  </Badge>
+                ))
+              )}
+            </div>
+            <ChevronDown className="h-4 w-4 opacity-50 flex-shrink-0" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 bg-popover border-border z-50">
+          <div className="p-2">
             {value.length > 0 && (
-              <button
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={clearAll}
-                className="w-full mb-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                className="w-full mb-2 text-muted-foreground hover:text-foreground"
               >
                 Clear all
-              </button>
+              </Button>
             )}
             <div className="space-y-1">
               {modules.map((module) => (
@@ -91,24 +92,20 @@ export const ModuleSelector = ({ value, onChange }: ModuleSelectorProps) => {
                   key={module.id}
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent cursor-pointer transition-colors"
                 >
-                  <input
-                    type="checkbox"
+                  <Checkbox
                     checked={value.includes(module.id)}
-                    onChange={() => toggleModule(module.id)}
-                    className="h-4 w-4 rounded border-border text-primary focus:ring-2 focus:ring-primary cursor-pointer"
+                    onCheckedChange={() => toggleModule(module.id)}
                   />
                   <span className="text-sm flex-1">{module.name}</span>
                 </label>
               ))}
             </div>
           </div>
-        </>
-      )}
-
+        </PopoverContent>
+      </Popover>
       {selectedModules.length > 0 && (
         <p className="text-xs text-muted-foreground mt-2">
-          {selectedModules.length} module
-          {selectedModules.length !== 1 ? "s" : ""} selected
+          {selectedModules.length} module{selectedModules.length !== 1 ? "s" : ""} selected
         </p>
       )}
     </div>
