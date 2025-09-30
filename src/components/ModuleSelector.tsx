@@ -1,26 +1,24 @@
-import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Checkbox } from "@/components/ui/checkbox";
-import { ChevronDown, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { ChevronDown, X } from "lucide-react";
 
 interface ModuleSelectorProps {
   value: string[];
   onChange: (value: string[]) => void;
+  availableModules: { id: string; name: string }[];
 }
 
-const modules = [
-  { id: "algorithms", name: "Algorithms" },
-  { id: "databases", name: "Databases" },
-  { id: "networks", name: "Computer Networks" },
-  { id: "os", name: "Operating Systems" },
-  { id: "ai", name: "Artificial Intelligence" },
-  { id: "graphics", name: "Computer Graphics" },
-  { id: "security", name: "Computer Security" },
-  { id: "software-eng", name: "Software Engineering" },
-];
-
-export const ModuleSelector = ({ value, onChange }: ModuleSelectorProps) => {
+export const ModuleSelector = ({
+  value,
+  onChange,
+  availableModules,
+}: ModuleSelectorProps) => {
   const toggleModule = (moduleId: string) => {
     if (value.includes(moduleId)) {
       onChange(value.filter((id) => id !== moduleId));
@@ -37,7 +35,7 @@ export const ModuleSelector = ({ value, onChange }: ModuleSelectorProps) => {
     onChange([]);
   };
 
-  const selectedModules = modules.filter((m) => value.includes(m.id));
+  const selectedModules = availableModules.filter((m) => value.includes(m.id));
 
   return (
     <div className="w-full">
@@ -87,7 +85,7 @@ export const ModuleSelector = ({ value, onChange }: ModuleSelectorProps) => {
               </Button>
             )}
             <div className="space-y-1">
-              {modules.map((module) => (
+              {availableModules.map((module) => (
                 <label
                   key={module.id}
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent cursor-pointer transition-colors"
@@ -105,7 +103,8 @@ export const ModuleSelector = ({ value, onChange }: ModuleSelectorProps) => {
       </Popover>
       {selectedModules.length > 0 && (
         <p className="text-xs text-muted-foreground mt-2">
-          {selectedModules.length} module{selectedModules.length !== 1 ? "s" : ""} selected
+          {selectedModules.length} module
+          {selectedModules.length !== 1 ? "s" : ""} selected
         </p>
       )}
     </div>
