@@ -9,7 +9,7 @@ export type ModuleInfo = {
   time: Interval;
   week: number;
   module: string;
-  room: string;
+  location: string;
   staff: string;
   groups: string;
   event_category: string;
@@ -28,4 +28,4 @@ type WeeklyTimetable = Record<Weekday, ModuleInfo[]>;
 // const computingTimeTable: WeeklyTimetable = JSON.parse(computingJSON);
 
 // *optional try catch block maybe?
-// maybe we can just make a folder of different 
+// maybe we can just make a folder of different
