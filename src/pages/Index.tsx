@@ -1,10 +1,10 @@
-import { useState } from "react";
+import GoogleSignIn from "@/components/GoogleSignIn";
 import { ModuleSelector } from "@/components/ModuleSelector";
 import { Button } from "@/components/ui/button";
-import { CalendarPlus } from "lucide-react";
 import { addMultipleToGoogleCalendar } from "@/utils/calendarUtils";
+import { CalendarPlus } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
-
 interface Lecture {
   id: string;
   title: string;
@@ -22,7 +22,7 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-06",
       time: "10:00 AM - 12:00 PM",
       room: "Huxley 340",
-      module: "Algorithms"
+      module: "Algorithms",
     },
     {
       id: "2",
@@ -30,7 +30,7 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-08",
       time: "2:00 PM - 4:00 PM",
       room: "Huxley 340",
-      module: "Algorithms"
+      module: "Algorithms",
     },
     {
       id: "3",
@@ -38,8 +38,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-13",
       time: "10:00 AM - 12:00 PM",
       room: "Huxley 340",
-      module: "Algorithms"
-    }
+      module: "Algorithms",
+    },
   ],
   databases: [
     {
@@ -48,7 +48,7 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-07",
       time: "9:00 AM - 11:00 AM",
       room: "Huxley 217",
-      module: "Databases"
+      module: "Databases",
     },
     {
       id: "5",
@@ -56,8 +56,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-10",
       time: "1:00 PM - 3:00 PM",
       room: "Huxley 217",
-      module: "Databases"
-    }
+      module: "Databases",
+    },
   ],
   networks: [
     {
@@ -66,8 +66,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-09",
       time: "11:00 AM - 1:00 PM",
       room: "Huxley 308",
-      module: "Computer Networks"
-    }
+      module: "Computer Networks",
+    },
   ],
   os: [
     {
@@ -76,8 +76,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-06",
       time: "3:00 PM - 5:00 PM",
       room: "Huxley 311",
-      module: "Operating Systems"
-    }
+      module: "Operating Systems",
+    },
   ],
   ai: [
     {
@@ -86,8 +86,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-11",
       time: "10:00 AM - 12:00 PM",
       room: "Huxley 341",
-      module: "Artificial Intelligence"
-    }
+      module: "Artificial Intelligence",
+    },
   ],
   graphics: [
     {
@@ -96,8 +96,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-12",
       time: "2:00 PM - 4:00 PM",
       room: "Huxley 344",
-      module: "Computer Graphics"
-    }
+      module: "Computer Graphics",
+    },
   ],
   security: [
     {
@@ -106,8 +106,8 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-14",
       time: "9:00 AM - 11:00 AM",
       room: "Huxley 413",
-      module: "Computer Security"
-    }
+      module: "Computer Security",
+    },
   ],
   "software-eng": [
     {
@@ -116,60 +116,102 @@ const mockLectures: Record<string, Lecture[]> = {
       date: "2025-10-15",
       time: "1:00 PM - 3:00 PM",
       room: "Huxley 345",
-      module: "Software Engineering"
-    }
-  ]
+      module: "Software Engineering",
+    },
+  ],
 };
 
 const Index = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
-  
+  const [signedInUser, setSignedInUser] = useState<any>(null);
+
   // Aggregate lectures from all selected modules
-  const lectures = selectedModules.flatMap(
-    (moduleId) => mockLectures[moduleId] || []
-  ).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  const lectures = selectedModules
+    .flatMap((moduleId) => mockLectures[moduleId] || [])
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  const handleSignInSuccess = (user: any) => {
+    setSignedInUser(user);
+    console.log("User signed in:", user);
+  };
+
+  const handleSignInError = (error: any) => {
+    console.error("Sign-in error:", error);
+    setSignedInUser(null);
+  };
 
   const handleAddAllToCalendar = () => {
     if (lectures.length === 0) {
       toast.error("No lectures to add");
       return;
     }
+
+    if (!signedInUser) {
+      toast.error(
+        "Please sign in with Google first to add events to your calendar"
+      );
+      return;
+    }
+
     addMultipleToGoogleCalendar(lectures);
-    toast.success(`All ${lectures.length} lecture${lectures.length !== 1 ? 's' : ''} added to calendar!`);
+    toast.success(
+      `All ${lectures.length} lecture${
+        lectures.length !== 1 ? "s" : ""
+      } added to calendar!`
+    );
   };
 
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <header className="text-center mb-12">
+        <header className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Imperial Computing Timetable
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg mb-6">
             Add your lecture schedule to Google Calendar
           </p>
+
+          {/* Google Sign-In Component */}
+          <div className="max-w-md mx-auto mb-8">
+            <GoogleSignIn
+              onSignInSuccess={handleSignInSuccess}
+              onSignInError={handleSignInError}
+            />
+          </div>
         </header>
 
         <div className="mb-8 max-w-md mx-auto">
           <label className="block text-sm font-medium mb-2 text-foreground">
             Select Modules
           </label>
-          <ModuleSelector value={selectedModules} onChange={setSelectedModules} />
+          <ModuleSelector
+            value={selectedModules}
+            onChange={setSelectedModules}
+          />
         </div>
 
         {selectedModules.length > 0 && (
           <div className="text-center space-y-4">
             <div className="bg-card border border-border rounded-lg p-6 max-w-md mx-auto">
               <p className="text-lg font-medium text-foreground mb-2">
-                Ready to add {lectures.length} lecture{lectures.length !== 1 ? 's' : ''}
+                Ready to add {lectures.length} lecture
+                {lectures.length !== 1 ? "s" : ""}
               </p>
               <p className="text-sm text-muted-foreground mb-4">
-                From {selectedModules.length} selected module{selectedModules.length !== 1 ? 's' : ''}
+                From {selectedModules.length} selected module
+                {selectedModules.length !== 1 ? "s" : ""}
               </p>
+              {!signedInUser && (
+                <p className="text-sm text-yellow-600 dark:text-yellow-400 mb-4">
+                  ⚠️ Please sign in with Google to add events to your calendar
+                </p>
+              )}
               <Button
                 onClick={handleAddAllToCalendar}
                 size="lg"
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+                disabled={!signedInUser}
               >
                 <CalendarPlus className="mr-2 h-5 w-5" />
                 Add to Calendar
@@ -180,7 +222,9 @@ const Index = () => {
 
         {selectedModules.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">Select modules to add their lectures to your calendar.</p>
+            <p className="text-muted-foreground">
+              Select modules to add their lectures to your calendar.
+            </p>
           </div>
         )}
       </div>
