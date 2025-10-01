@@ -52,9 +52,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Imperial Computing Timetable
+        <header className="text-center mb-4">
+          <h1
+            className="font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+            style={{ fontSize: "3rem", lineHeight: 1.5 }}
+          >
+            Imperial College Timetable
           </h1>
           <p className="text-muted-foreground text-lg mb-6">
             Download and keep your lecture timetable
@@ -63,10 +66,10 @@ const Index = () => {
 
         <div className="mb-8 max-w-md mx-auto">
           <label className="block text-sm font-medium mb-2 text-foreground">
-            Select Course
+            Department
           </label>
           <Select>
-            <SelectTrigger>
+            <SelectTrigger className="bg-white text-muted-foreground font-medium px-4">
               <SelectValue placeholder="Select a department" />
             </SelectTrigger>
             <SelectContent>
@@ -88,7 +91,7 @@ const Index = () => {
 
         <div className="mb-8 max-w-md mx-auto">
           <label className="block text-sm font-medium mb-2 text-foreground">
-            Select Modules
+            Modules
           </label>
           <ModuleSelector
             value={selectedModules}

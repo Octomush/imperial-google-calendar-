@@ -83,12 +83,10 @@ export const ModuleSelector = ({
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="w-full justify-between bg-card border-border hover:border-primary transition-colors h-auto min-h-[2.5rem] py-2"
+            className="w-full justify-between bg-card border-border hover:border-primary transition-colors"
           >
-            <div className="flex flex-wrap gap-1 flex-1 mr-2">
-              {renderSelectedBadges()}
-            </div>
-            <ChevronDown className="h-4 w-4 opacity-50 flex-shrink-0" />
+            <div>{renderSelectedBadges()}</div>
+            <ChevronDown className="h-4 w-4 text-muted-foreground" />
           </Button>
         </PopoverTrigger>
 
