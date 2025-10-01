@@ -11,7 +11,7 @@ import { ChevronDown, X } from "lucide-react";
 interface ModuleSelectorProps {
   value: string[];
   onChange: (value: string[]) => void;
-  availableModules: { id: string; name: string }[];
+  availableModules: string[];
 }
 
 export const ModuleSelector = ({
@@ -20,22 +20,62 @@ export const ModuleSelector = ({
   availableModules,
 }: ModuleSelectorProps) => {
   const toggleModule = (moduleId: string) => {
-    if (value.includes(moduleId)) {
-      onChange(value.filter((id) => id !== moduleId));
-    } else {
-      onChange([...value, moduleId]);
-    }
+    onChange(
+      value.includes(moduleId)
+        ? value.filter((id) => id !== moduleId)
+        : [...value, moduleId]
+    );
   };
 
   const removeModule = (moduleId: string) => {
     onChange(value.filter((id) => id !== moduleId));
   };
 
-  const clearAll = () => {
-    onChange([]);
+  const clearAll = () => onChange([]);
+
+  const selectedModules = availableModules.filter((m) => value.includes(m));
+
+  const renderSelectedBadges = () => {
+    if (selectedModules.length === 0) {
+      return <span className="text-muted-foreground">Select modules</span>;
+    }
+
+    return selectedModules.map((module) => (
+      <Badge
+        key={module}
+        variant="secondary"
+        className="bg-primary/10 text-primary hover:bg-primary/20"
+      >
+        {module}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            removeModule(module);
+          }}
+          className="ml-1 hover:text-destructive"
+        >
+          <X className="h-3 w-3" />
+        </button>
+      </Badge>
+    ));
   };
 
-  const selectedModules = availableModules.filter((m) => value.includes(m.id));
+  const renderModuleOptions = () => (
+    <div className="max-h-60 overflow-y-auto space-y-1">
+      {availableModules.map((module) => (
+        <label
+          key={module}
+          className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent cursor-pointer transition-colors"
+        >
+          <Checkbox
+            checked={value.includes(module)}
+            onCheckedChange={() => toggleModule(module)}
+          />
+          <span className="text-sm flex-1">{module}</span>
+        </label>
+      ))}
+    </div>
+  );
 
   return (
     <div className="w-full">
@@ -46,32 +86,12 @@ export const ModuleSelector = ({
             className="w-full justify-between bg-card border-border hover:border-primary transition-colors h-auto min-h-[2.5rem] py-2"
           >
             <div className="flex flex-wrap gap-1 flex-1 mr-2">
-              {selectedModules.length === 0 ? (
-                <span className="text-muted-foreground">Select modules</span>
-              ) : (
-                selectedModules.map((module) => (
-                  <Badge
-                    key={module.id}
-                    variant="secondary"
-                    className="bg-primary/10 text-primary hover:bg-primary/20"
-                  >
-                    {module.name}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        removeModule(module.id);
-                      }}
-                      className="ml-1 hover:text-destructive"
-                    >
-                      <X className="h-3 w-3" />
-                    </button>
-                  </Badge>
-                ))
-              )}
+              {renderSelectedBadges()}
             </div>
             <ChevronDown className="h-4 w-4 opacity-50 flex-shrink-0" />
           </Button>
         </PopoverTrigger>
+
         <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 bg-popover border-border z-50">
           <div className="p-2">
             {value.length > 0 && (
@@ -84,23 +104,11 @@ export const ModuleSelector = ({
                 Clear all
               </Button>
             )}
-            <div className="space-y-1">
-              {availableModules.map((module) => (
-                <label
-                  key={module.id}
-                  className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent cursor-pointer transition-colors"
-                >
-                  <Checkbox
-                    checked={value.includes(module.id)}
-                    onCheckedChange={() => toggleModule(module.id)}
-                  />
-                  <span className="text-sm flex-1">{module.name}</span>
-                </label>
-              ))}
-            </div>
+            {renderModuleOptions()}
           </div>
         </PopoverContent>
       </Popover>
+
       {selectedModules.length > 0 && (
         <p className="text-xs text-muted-foreground mt-2">
           {selectedModules.length} module

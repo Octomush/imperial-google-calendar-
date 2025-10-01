@@ -1,8 +1,13 @@
-type Weekday = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday";
+export type Weekday =
+  | "Monday"
+  | "Tuesday"
+  | "Wednesday"
+  | "Thursday"
+  | "Friday";
 
 export type Interval = {
-  start: number;
-  end: number;
+  start: string;
+  end: string;
 };
 
 export type ModuleInfo = {
@@ -19,13 +24,4 @@ export type ModuleInfo = {
   id: string;
 };
 
-type WeeklyTimetable = Record<Weekday, ModuleInfo[]>;
-
-// trusting the JSON structure we should just do:
-
-import fs from "fs";
-const computingJSON = fs.readFileSync("computing.json", "utf-8");
-const computingTimeTable: WeeklyTimetable = JSON.parse(computingJSON);
-
-// *optional try catch block maybe?
-// maybe we can just make a folder of different
+export type WeeklyTimetable = Record<Weekday, ModuleInfo[]>;

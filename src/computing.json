@@ -1,7 +1,7 @@
 {
   "Monday": [
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP60016 - Operations Research",
       "location": "HXLY 311 [South Kensington]",
@@ -13,7 +13,7 @@
       "id": "5028878"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP70018 - Privacy Engineering",
       "location": "HXLY 144 [South Kensington]",
@@ -22,10 +22,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028879"
+      "id": "50288709"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP70114 - Machine Learning Systems and Hardware",
       "location": "HXLY 145 [South Kensington]",
@@ -37,7 +37,7 @@
       "id": "5028880"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP70005 - Complexity",
       "location": "Online [Remote / Non-Physical Campus]",
@@ -47,10 +47,10 @@
       "published_online_link": "",
       "department": "CO Department of Computing",
       "notes": "Pre-recorded material should be viewed in place of this session; consult module leader for details.",
-      "id": "5028941"
+      "id": "50280941"
     },
     {
-      "time": { "start": 14, "end": 16 },
+      "time": { "start": "14", "end": "16" },
       "week": 16,
       "module": "COMP70021 - Quantum Computing",
       "location": "HXLY 144 [South Kensington]",
@@ -59,10 +59,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028947"
+      "id": "50280947"
     },
     {
-      "time": { "start": 14, "end": 16 },
+      "time": { "start": "14", "end": "16" },
       "week": 16,
       "module": "COMP70024 - Software Reliability",
       "location": "HXLY 342 [South Kensington]",
@@ -71,22 +71,22 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028948"
+      "id": "50280948"
     },
     {
-      "time": { "start": 16, "end": 18 },
+      "time": { "start": "16", "end": "18" },
       "week": 16,
-      "module": "COMP60029 - Data Processing Systems",
+      "module": "COMP600209 - Data Processing Systems",
       "location": "HXLY 311 [South Kensington]",
       "staff": "Pirk, Holger",
-      "groups": "COMP60029, EE-EIE3-COMP60029",
+      "groups": "COMP600209, EE-EIE3-COMP600209",
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028917"
+      "id": "50280917"
     },
     {
-      "time": { "start": 16, "end": 18 },
+      "time": { "start": "16", "end": "18" },
       "week": 16,
       "module": "COMP70028 - Reinforcement Learning",
       "location": "HXLY 308 [South Kensington]",
@@ -95,12 +95,12 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028919"
+      "id": "502809109"
     }
   ],
   "Tuesday": [
     {
-      "time": { "start": 9, "end": 11 },
+      "time": { "start": "09", "end": "11" },
       "week": 16,
       "module": "COMP70017 - Principles of Distributed Ledgers",
       "location": "HXLY 311 [South Kensington]",
@@ -109,10 +109,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028925"
+      "id": "50280925"
     },
     {
-      "time": { "start": 9, "end": 11 },
+      "time": { "start": "09", "end": "11" },
       "week": 16,
       "module": "COMP70025 - Software Engineering for Industry (Office Hours)",
       "location": "HXLY 342 [South Kensington]",
@@ -121,13 +121,13 @@
       "event_category": "M - Academic Office Hours",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028926"
+      "id": "50280926"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP60012 / COMP70050 - Intro to Machine Learning",
-      "location": "HXLY 210 [South Kensington], HXLY 219 [South Kensington], HXLY 221 [South Kensington], HXLY 225 [South Kensington]",
+      "location": "HXLY 210 [South Kensington], HXLY 2109 [South Kensington], HXLY 221 [South Kensington], HXLY 225 [South Kensington]",
       "staff": "Cully, Antoine H R; Rei, Marek; Wang, Josiah K S",
       "groups": "COMP60012, COMP70050, EE-EIE3-COMP60012",
       "event_category": "T - Laboratory Session",
@@ -136,7 +136,7 @@
       "id": "5028862"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP70023 - Scalable Software Verification",
       "location": "HXLY 145 [South Kensington]",
@@ -145,10 +145,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028912"
+      "id": "50280912"
     },
     {
-      "time": { "start": 13, "end": 14 },
+      "time": { "start": "13", "end": "14" },
       "week": 16,
       "module": "CO Applications of Computing in Industry",
       "location": "HXLY 308 [South Kensington]",
@@ -161,7 +161,7 @@
       "id": "5028481"
     },
     {
-      "time": { "start": 14, "end": 16 },
+      "time": { "start": "14", "end": "16" },
       "week": 16,
       "module": "COMP70022 - Scalable Systems and Data",
       "location": "HXLY 144 [South Kensington]",
@@ -173,7 +173,7 @@
       "id": "5028850"
     },
     {
-      "time": { "start": 14, "end": 16 },
+      "time": { "start": "14", "end": "16" },
       "week": 16,
       "module": "COMP70103 - Statistical Information Theory",
       "location": "HXLY 145 [South Kensington]",
@@ -185,7 +185,7 @@
       "id": "5028851"
     },
     {
-      "time": { "start": 16, "end": 18 },
+      "time": { "start": "16", "end": "18" },
       "week": 16,
       "module": "COMP70006 - Computational Finance",
       "location": "Online [Remote / Non-Physical Campus]",
@@ -198,7 +198,7 @@
       "id": "5028833"
     },
     {
-      "time": { "start": 16, "end": 18 },
+      "time": { "start": "16", "end": "18" },
       "week": 16,
       "module": "COMP60023 - Type Systems for Programming Languages",
       "location": "HXLY 145 [South Kensington]",
@@ -207,10 +207,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028911"
+      "id": "50280911"
     },
     {
-      "time": { "start": 16, "end": 18 },
+      "time": { "start": "16", "end": "18" },
       "week": 16,
       "module": "COMP70068 - Scheduling and Resource Allocation",
       "location": "HXLY 308 [South Kensington]",
@@ -219,12 +219,12 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028913"
+      "id": "50280913"
     }
   ],
   "Wednesday": [
     {
-      "time": { "start": 10, "end": 12 },
+      "time": { "start": "10", "end": "12" },
       "week": 16,
       "module": "COMP70021 - Quantum Computing",
       "location": "HXLY 144 [South Kensington]",
@@ -233,10 +233,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028950"
+      "id": "50280950"
     },
     {
-      "time": { "start": 10, "end": 12 },
+      "time": { "start": "10", "end": "12" },
       "week": 16,
       "module": "COMP70024 - Software Reliability",
       "location": "HXLY 145 [South Kensington]",
@@ -245,10 +245,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028951"
+      "id": "50280951"
     },
     {
-      "time": { "start": 12, "end": 13 },
+      "time": { "start": "12", "end": "13" },
       "week": 16,
       "module": "COMPM0701 - (Optional) Programming Competition Training",
       "location": "HXLY 202 [South Kensington]",
@@ -257,12 +257,12 @@
       "event_category": "M - Student Training",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5099885"
+      "id": "5009885"
     }
   ],
   "Thursday": [
     {
-      "time": { "start": 9, "end": 11 },
+      "time": { "start": "09", "end": "11" },
       "week": 16,
       "module": "COMP70023 - Scalable Software Verification",
       "location": "HXLY 145 [South Kensington]",
@@ -271,10 +271,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028915"
+      "id": "50280915"
     },
     {
-      "time": { "start": 9, "end": 10 },
+      "time": { "start": "09", "end": "10" },
       "week": 16,
       "module": "CO Pre-recorded material for 'Intro to ML'",
       "location": "Online [Remote / Non-Physical Campus]",
@@ -287,10 +287,10 @@
       "id": "5028861"
     },
     {
-      "time": { "start": 10, "end": 11 },
+      "time": { "start": "10", "end": "11" },
       "week": 16,
       "module": "COMP60012 / COMP70050 - Intro to Machine Learning",
-      "location": "CO Online 09 [Remote / Non-Physical Campus]",
+      "location": "CO Online 009 [Remote / Non-Physical Campus]",
       "staff": "Cully, Antoine H R; Rei, Marek; Wang, Josiah K S",
       "groups": "COMP60012, COMP70050, EE-EIE3-COMP60012",
       "event_category": "M - Q&A",
@@ -300,7 +300,7 @@
       "id": "5028863"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP60016 - Operations Research",
       "location": "HXLY 340 [South Kensington]",
@@ -312,7 +312,7 @@
       "id": "5028881"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP70005 - Complexity",
       "location": "- [Remote / Non-Physical Campus], HXLY 341 [South Kensington]",
@@ -324,7 +324,7 @@
       "id": "5028882"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP70018 - Privacy Engineering",
       "location": "HXLY 202 [South Kensington], HXLY 206 [South Kensington]",
@@ -336,7 +336,7 @@
       "id": "5028883"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 16,
       "module": "COMP70114 - Machine Learning Systems and Hardware",
       "location": "HXLY 145 [South Kensington]",
@@ -345,11 +345,11 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "notes": "Occasional use of lab 219 at 1200-1300",
+      "notes": "Occasional use of lab 2109 at 1200-1300",
       "id": "5028884"
     },
     {
-      "time": { "start": 14, "end": 16 },
+      "time": { "start": "14", "end": "16" },
       "week": 16,
       "module": "COMP60001 / COMP70086 - Advanced Computer Architecture",
       "location": "HXLY 311 [South Kensington]",
@@ -363,32 +363,32 @@
   ],
   "Friday": [
     {
-      "time": { "start": 9, "end": 11 },
+      "time": { "start": "09", "end": "11" },
       "week": 17,
-      "module": "COMP60029 - Data Processing Systems",
+      "module": "COMP600209 - Data Processing Systems",
       "location": "Online [Remote / Non-Physical Campus]",
       "staff": "Pirk, Holger",
-      "groups": "COMP60029, EE-EIE3-COMP60029",
+      "groups": "COMP600209, EE-EIE3-COMP600209",
       "event_category": "M - Guided Online Learning",
       "published_online_link": "",
       "department": "CO Department of Computing",
       "notes": "Pre-recorded material should be viewed in place of this session; consult module leader for details.",
-      "id": "5028918"
+      "id": "50280918"
     },
     {
-      "time": { "start": 9, "end": 11 },
+      "time": { "start": "09", "end": "11" },
       "week": 17,
       "module": "COMP70028 - Reinforcement Learning",
-      "location": "HXLY 210 [South Kensington], HXLY 219 [South Kensington], HXLY 221 [South Kensington], HXLY 225 [South Kensington]",
+      "location": "HXLY 210 [South Kensington], HXLY 2109 [South Kensington], HXLY 221 [South Kensington], HXLY 225 [South Kensington]",
       "staff": "James, Stephen L",
       "groups": "COMP70028",
       "event_category": "T - Laboratory Session",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028920"
+      "id": "50280920"
     },
     {
-      "time": { "start": 11, "end": 13 },
+      "time": { "start": "11", "end": "13" },
       "week": 17,
       "module": "COMP70025 - Software Engineering for Industry",
       "location": "HXLY 341 [South Kensington], HXLY 342 [South Kensington]",
@@ -397,10 +397,10 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028930"
+      "id": "50280930"
     },
     {
-      "time": { "start": 12, "end": 14 },
+      "time": { "start": "12", "end": "14" },
       "week": 17,
       "module": "CO Horizons Year-in-Europe Language Classes",
       "location": "- [Remote / Non-Physical Campus]",
@@ -412,7 +412,7 @@
       "id": "5028503"
     },
     {
-      "time": { "start": 13, "end": 14 },
+      "time": { "start": "13", "end": "14" },
       "week": 17,
       "module": "CO Careers Talk",
       "location": "HXLY 311 [South Kensington]",
@@ -422,10 +422,10 @@
       "published_online_link": "",
       "department": "CO Department of Computing",
       "notes": "Using online tests, games and simulations is becoming common place to assess your skills, values, and behaviours in graduate and internship recruitment. This session will explore the types of assessment you may encounter and provide hints and tips to help you succeed.",
-      "id": "5099190"
+      "id": "50091090"
     },
     {
-      "time": { "start": 14, "end": 16 },
+      "time": { "start": "14", "end": "16" },
       "week": 17,
       "module": "COMP70022 - Scalable Systems and Data",
       "location": "HXLY 145 [South Kensington]",
@@ -437,7 +437,7 @@
       "id": "5028853"
     },
     {
-      "time": { "start": 14, "end": 16 },
+      "time": { "start": "14", "end": "16" },
       "week": 17,
       "module": "COMP70103 - Statistical Information Theory",
       "location": "HXLY 311 [South Kensington]",
@@ -449,7 +449,7 @@
       "id": "5028854"
     },
     {
-      "time": { "start": 16, "end": 18 },
+      "time": { "start": "16", "end": "18" },
       "week": 17,
       "module": "COMP70006 - Computational Finance",
       "location": "HXLY 144 [South Kensington]",
@@ -461,7 +461,7 @@
       "id": "5028832"
     },
     {
-      "time": { "start": 16, "end": 18 },
+      "time": { "start": "16", "end": "18" },
       "week": 17,
       "module": "COMP60023 - Type Systems for Programming Languages",
       "location": "HXLY 145 [South Kensington]",
@@ -470,7 +470,7 @@
       "event_category": "T - Lecture",
       "published_online_link": "",
       "department": "CO Department of Computing",
-      "id": "5028914"
+      "id": "50280914"
     }
   ]
 }
