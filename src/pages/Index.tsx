@@ -1,14 +1,23 @@
 import { ModuleSelector } from "@/components/ModuleSelector";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { downloadICSFile, generateICSContent } from "@/utils/calendarUtils";
 import { Download } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import computingTimetable from "../computing.json";
 import computingModules from "../computingModules.json";
+import mathsTimetable from "../mathematics.json";
 
 const Index = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
+  const [selectedCourse, setSelectedCourse] = useState<string>("computing");
 
   const handleDownloadICS = () => {
     if (selectedModules.length === 0) {
@@ -17,11 +26,10 @@ const Index = () => {
     }
 
     try {
-      const icsContent = generateICSContent(
-        computingTimetable,
-        selectedModules
-      );
-      downloadICSFile(icsContent, "imperial-computing-timetable.ics");
+      const timetable =
+        selectedCourse === "computing" ? computingTimetable : mathsTimetable;
+      const icsContent = generateICSContent(timetable, selectedModules);
+      downloadICSFile(icsContent, `imperial-${selectedCourse}-timetable.ics`);
       toast.success(
         `Downloaded calendar for ${selectedModules.length} lecture${
           selectedModules.length !== 1 ? "s" : ""
@@ -52,6 +60,31 @@ const Index = () => {
             Download and keep your lecture timetable
           </p>
         </header>
+
+        <div className="mb-8 max-w-md mx-auto">
+          <label className="block text-sm font-medium mb-2 text-foreground">
+            Select Course
+          </label>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Select a department" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                value="computing"
+                onClick={() => setSelectedCourse("computing")}
+              >
+                Computing
+              </SelectItem>
+              <SelectItem
+                value="mathematics"
+                onClick={() => setSelectedCourse("mathematics")}
+              >
+                Mathematics
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
 
         <div className="mb-8 max-w-md mx-auto">
           <label className="block text-sm font-medium mb-2 text-foreground">

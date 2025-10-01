@@ -19,7 +19,7 @@ const escapeICSText = (text: string) => {
 };
 
 export const generateICSContent = (
-  computingTimetable: WeeklyTimetable,
+  timetable: WeeklyTimetable,
   selectedModules: string[] = []
 ) => {
   const modulesText =
@@ -38,7 +38,7 @@ export const generateICSContent = (
 
   const ICSCreatedStamp = formatDateForICS(new Date());
 
-  for (const [day, modulesInDay] of Object.entries(computingTimetable) as [
+  for (const [day, modulesInDay] of Object.entries(timetable) as [
     Weekday,
     ModuleInfo[]
   ][]) {
@@ -75,7 +75,9 @@ export const generateICSContent = (
             `DTEND:${dtend}`,
             `RRULE:FREQ=WEEKLY;COUNT=8`,
             `SUMMARY:${escapeICSText(module.module)}`,
-            `DESCRIPTION:${escapeICSText(module.staff)}`,
+            `DESCRIPTION:${escapeICSText(module.staff)}${
+              module.notes ? "\n" + escapeICSText(module.notes) : ""
+            }`,
             `LOCATION:${escapeICSText(module.location)}`,
             "STATUS:CONFIRMED",
             "TRANSP:OPAQUE",
@@ -89,15 +91,12 @@ export const generateICSContent = (
   return icsContent;
 };
 
-export const downloadICSFile = (icsContent: string, filename?: string) => {
+export const downloadICSFile = (icsContent: string, filename: string) => {
   const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
   const url = window.URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  const defaultFilename = `imperial_calendar_8weeks_${
-    new Date().toISOString().split("T")[0]
-  }.ics`;
-  link.download = filename || defaultFilename;
+  link.download = filename;
 
   document.body.appendChild(link);
   link.click();
