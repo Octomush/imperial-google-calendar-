@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { downloadICSFile, generateICSContent } from "@/utils/calendarUtils";
-import { Download } from "lucide-react";
+import { Calendar, Download } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import computingTimetable from "../computing.json";
@@ -18,6 +18,7 @@ import mathsModules from "../mathsModules.json";
 
 const Index = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
+  const [selectedYear, setSelectedYear] = useState<string>("1");
   const [selectedCourse, setSelectedCourse] = useState<string>("computing");
 
   const handleDownloadICS = () => {
@@ -44,6 +45,9 @@ const Index = () => {
 
   const handleDownloadButton = () => {
     handleDownloadICS();
+  };
+
+  const handleGoogleCalendar = () => {
     window.open(
       "https://calendar.google.com/calendar/u/0/r/settings/export",
       "_blank"
@@ -82,6 +86,23 @@ const Index = () => {
 
         <div className="mb-8 max-w-md mx-auto">
           <label className="block text-sm font-medium mb-2 text-foreground">
+            Year
+          </label>
+          <Select value={selectedYear} onValueChange={setSelectedYear}>
+            <SelectTrigger className="bg-white text-muted-foreground font-medium px-4">
+              <SelectValue placeholder="Select a year" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1">Year 1</SelectItem>
+              <SelectItem value="2">Year 2</SelectItem>
+              <SelectItem value="3">Year 3</SelectItem>
+              <SelectItem value="4">Year 4</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="mb-8 max-w-md mx-auto">
+          <label className="block text-sm font-medium mb-2 text-foreground">
             Modules
           </label>
           <ModuleSelector
@@ -100,11 +121,7 @@ const Index = () => {
                 Ready to add {selectedModules.length} lecture
                 {selectedModules.length !== 1 ? "s" : ""}
               </p>
-              <p className="text-sm text-muted-foreground mb-2">
-                From {selectedModules.length} selected module
-                {selectedModules.length !== 1 ? "s" : ""}
-              </p>
-              <div className="space-y-3">
+              <div className="space-y-3 mb-3">
                 <Button
                   onClick={handleDownloadButton}
                   variant="outline"
@@ -114,6 +131,21 @@ const Index = () => {
                   <Download className="mr-2 h-5 w-5" />
                   Download .ics File
                 </Button>
+              </div>
+              <div className="space-y-3">
+                <Button
+                  onClick={handleGoogleCalendar}
+                  variant="outline"
+                  size="lg"
+                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-lg"
+                >
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Add to Google Calendar
+                </Button>
+                <p className="text-sm text-muted-foreground mb-2">
+                  No budget for google api sorry, this will just open up a link
+                  that leads you to add it directly to your google calendar 😃
+                </p>
               </div>
             </div>
           </div>

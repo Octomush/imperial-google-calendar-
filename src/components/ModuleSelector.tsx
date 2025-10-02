@@ -44,15 +44,15 @@ export const ModuleSelector = ({
       <Badge
         key={module}
         variant="secondary"
-        className="bg-primary/10 text-primary hover:bg-primary/20"
+        className="bg-primary/10 text-primary hover:bg-primary/20 text-xs truncate max-w-[150px] sm:max-w-none"
       >
-        {module}
+        <span className="truncate">{module}</span>
         <button
           onClick={(e) => {
             e.stopPropagation();
             removeModule(module);
           }}
-          className="ml-1 hover:text-destructive"
+          className="ml-1 hover:text-destructive flex-shrink-0"
         >
           <X className="h-3 w-3" />
         </button>
@@ -85,7 +85,7 @@ export const ModuleSelector = ({
             variant="outline"
             className="w-full justify-between bg-card border-border hover:border-primary transition-colors h-auto min-h-[2.5rem] py-2"
           >
-            <div className="flex flex-wrap gap-1 flex-1 mr-2">
+            <div className="flex flex-wrap gap-1 flex-1 mr-2 min-w-0">
               {renderSelectedBadges()}
             </div>
             <ChevronDown className="h-4 w-4 text-muted-foreground flex-shrink-0" />
