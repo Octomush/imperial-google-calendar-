@@ -12,16 +12,16 @@ export type Interval = {
 
 export type ModuleInfo = {
   time: Interval;
-  week: number;
+  week?: number;
   module: string;
   location: string;
   staff: string;
-  groups: string;
+  groups?: string;
   event_category: string;
   published_online_link?: string;
   department: string;
   notes?: string;
-  id: string;
+  id?: string;
 };
 
 export type WeeklyTimetable = Record<Weekday, ModuleInfo[]>;
