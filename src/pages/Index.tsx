@@ -14,6 +14,7 @@ import { toast } from "sonner";
 import computingTimetable from "../computing.json";
 import computingModules from "../computingModules.json";
 import mathsTimetable from "../mathematics.json";
+import mathsModules from "../mathsModules.json";
 
 const Index = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
@@ -68,23 +69,13 @@ const Index = () => {
           <label className="block text-sm font-medium mb-2 text-foreground">
             Department
           </label>
-          <Select>
+          <Select value={selectedCourse} onValueChange={setSelectedCourse}>
             <SelectTrigger className="bg-white text-muted-foreground font-medium px-4">
               <SelectValue placeholder="Select a department" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem
-                value="computing"
-                onClick={() => setSelectedCourse("computing")}
-              >
-                Computing
-              </SelectItem>
-              <SelectItem
-                value="mathematics"
-                onClick={() => setSelectedCourse("mathematics")}
-              >
-                Mathematics
-              </SelectItem>
+              <SelectItem value="computing">Computing</SelectItem>
+              <SelectItem value="mathematics">Mathematics</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -96,7 +87,9 @@ const Index = () => {
           <ModuleSelector
             value={selectedModules}
             onChange={setSelectedModules}
-            availableModules={computingModules}
+            availableModules={
+              selectedCourse === "computing" ? computingModules : mathsModules
+            }
           />
         </div>
 
