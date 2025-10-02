@@ -21,7 +21,7 @@
     },
     {
       "time": { "start": "10", "end": "12" },
-      "module": "MATH60023 - Computational Dynamical Systems / MATH70023 - Computational Dynamical Systems",
+      "module": "MATH60023/MATH70023 - Computational Dynamical Systems",
       "location": "HXLY 140 [South Kensington]",
       "staff": "Keaveny, Eric E",
       "event_category": "T - Lecture",
@@ -48,7 +48,7 @@
     },
     {
       "time": { "start": "11", "end": "12" },
-      "module": "MATH60001 - Fluid Dynamics 1 / MATH70001 - Fluid Dynamics 1",
+      "module": "MATH60001/MATH70001 - Fluid Dynamics 1",
       "location": "HXLY 340 [South Kensington]",
       "staff": "Wu, Xuesong",
       "event_category": "T - Lecture",
@@ -57,7 +57,7 @@
     },
     {
       "time": { "start": "11", "end": "12" },
-      "module": "MATH60033 - Algebraic Curves / MATH70033 - Algebraic Curves",
+      "module": "MATH60033/MATH70033 - Algebraic Curves",
       "location": "HXLY 130 [South Kensington]",
       "staff": "Sivek, Steven W",
       "event_category": "T - Lecture",
@@ -75,7 +75,7 @@
     },
     {
       "time": { "start": "13", "end": "14" },
-      "module": "MATH60015 - Quantum Mechanics I / MATH70015 - Quantum Mechanics I",
+      "module": "MATH60015/MATH70015 - Quantum Mechanics I",
       "location": "HXLY 144",
       "staff": "Grafe, Eva Maria",
       "event_category": "T - Lecture",
@@ -84,7 +84,7 @@
     },
     {
       "time": { "start": "14", "end": "15" },
-      "module": "MATH60041 - Number Theory / MATH70041 - Number Theory",
+      "module": "MATH60041/MATH70041 - Number Theory",
       "location": "HXLY 410",
       "staff": "Garniani, Ana",
       "event_category": "T - Lecture",
@@ -102,7 +102,7 @@
     },
     {
       "time": { "start": "15", "end": "16" },
-      "module": "MATH60043 - Statistical Theory / MATH70043 - Statistical Theory",
+      "module": "MATH60043/MATH70043 - Statistical Theory",
       "location": "HXLY 130",
       "staff": "Rioux, Gabriel",
       "event_category": "T - Lecture",
@@ -111,7 +111,7 @@
     },
     {
       "time": { "start": "16", "end": "17" },
-      "module": "MATH60036 - Group Theory / MATH70036 - Group Theory",
+      "module": "MATH60036/MATH70036 - Group Theory",
       "location": "HXLY 140",
       "staff": "Kunyavskii, Kalyani",
       "event_category": "T - Lecture",
@@ -120,7 +120,7 @@
     },
     {
       "time": { "start": "17", "end": "18" },
-      "module": "MATH60141 - Introduction to Game Theory / MATH70141 - Introduction to Game Theory",
+      "module": "MATH60141/MATH70141 - Introduction to Game Theory",
       "location": "HXLY 213 - Clore Lecture Theatre",
       "staff": "Brzezicki, Samuel J",
       "event_category": "T - Lecture",
@@ -129,7 +129,7 @@
     },
     {
       "time": { "start": "14", "end": "16" },
-      "module": "MATH60038 - Graph Theory / MATH70038 - Graph Theory",
+      "module": "MATH60038/MATH70038 - Graph Theory",
       "location": "HXLY 140",
       "staff": "Zhan, Michele",
       "event_category": "T - Lecture",
@@ -138,7 +138,7 @@
     },
     {
       "time": { "start": "15", "end": "17" },
-      "module": "MATH60035 - Algebra 3 / MATH70035 - Algebra 3",
+      "module": "MATH60035/MATH70035 - Algebra 3",
       "location": "HXLY 140",
       "staff": "Coni, Alessio",
       "event_category": "T - Lecture",
@@ -147,7 +147,7 @@
     },
     {
       "time": { "start": "14", "end": "16" },
-      "module": "MATH60054 - Introduction to Stochastic Differential Equations and Diffusion Processes / MATH70054 - Introduction to Stochastic Differential Equations and Diffusion Processes",
+      "module": "MATH60054/MATH70054 - Introduction to Stochastic Differential Equations and Diffusion Processes",
       "location": "HXLY 139",
       "staff": "Bressloff, Paul C",
       "event_category": "T - Lecture",
@@ -156,7 +156,7 @@
     },
     {
       "time": { "start": "12", "end": "14" },
-      "module": "MATH60045 - Applied Probability / MATH70045 - Applied Probability",
+      "module": "MATH60045/MATH70045 - Applied Probability",
       "location": "HXLY 340",
       "staff": "Ryder, Robin J",
       "event_category": "T - Lecture",
@@ -165,7 +165,7 @@
     },
     {
       "time": { "start": "14", "end": "16" },
-      "module": "MATH60047 - Statistical Mechanics / MATH70047 - Statistical Mechanics",
+      "module": "MATH60047/MATH70047 - Statistical Mechanics",
       "location": "HXLY 130",
       "staff": "Bertrand, Thibault",
       "event_category": "T - Lecture",
@@ -174,7 +174,7 @@
     },
     {
       "time": { "start": "14", "end": "16" },
-      "module": "MATH60007 - Dynamics of Learning and Iterated Games / MATH70007 - Dynamics of Learning and Iterated Games",
+      "module": "MATH60007/MATH70007 - Dynamics of Learning and Iterated Games",
       "location": "HXLY 144 (Wk 11); HXLY 341 (Wks 2-10)",
       "staff": "Moure, Adrien",
       "event_category": "T - Lecture",
@@ -185,7 +185,7 @@
   "Tuesday": [
     {
       "time": { "start": "09", "end": "10" },
-      "module": "MATH60017 - Galois Theory / MATH70017 - Galois Theory",
+      "module": "MATH60017/MATH70017 - Galois Theory",
       "location": "HXLY 140",
       "staff": "Coni, Alessio",
       "event_category": "T - Lecture",
@@ -194,7 +194,7 @@
     },
     {
       "time": { "start": "09", "end": "10" },
-      "module": "MATH60019 - Theory of Partial Differential Equations / MATH70019 - Theory of Partial Differential Equations",
+      "module": "MATH60019/MATH70019 - Theory of Partial Differential Equations",
       "location": "HXLY 130",
       "staff": "Sorella, Massimo",
       "event_category": "T - Lecture",
@@ -203,7 +203,7 @@
     },
     {
       "time": { "start": "10", "end": "11" },
-      "module": "MATH60023 - Computational Dynamical Systems / MATH70023 - Computational Dynamical Systems",
+      "module": "MATH60023/MATH70023 - Computational Dynamical Systems",
       "location": "HXLY 145 (Wk 11); HXLY 341 (Wks 2-10)",
       "staff": "Keaveny, Eric E",
       "event_category": "T - Lecture",
@@ -222,7 +222,7 @@
 
     {
       "time": { "start": "10", "end": "11" },
-      "module": "MATH60044 - Applied Statistical Inference; MATH70044 - Applied Statistical Inference",
+      "module": "MATH60044/MATH70044 - Applied Statistical Inference",
       "location": "HXLY 340",
       "staff": "Hadworth, Christopher A",
       "event_category": "T - Lecture",
@@ -240,7 +240,7 @@
     },
     {
       "time": { "start": "11", "end": "13" },
-      "module": "MATH60135 - Advanced Partial Differential Equations 1 / MATH70135 - Advanced Partial Differential Equations 1",
+      "module": "MATH60135/MATH70135 - Advanced Partial Differential Equations 1",
       "location": "HXLY 144",
       "staff": "Pavliotis, Greg",
       "event_category": "T - Lecture",
@@ -249,7 +249,7 @@
     },
     {
       "time": { "start": "12", "end": "13" },
-      "module": "MATH60035 - Algebra 3 / MATH70035 - Algebra 3",
+      "module": "MATH60035/MATH70035 - Algebra 3",
       "location": "HXLY 140",
       "staff": "Corti, Alessio",
       "event_category": "T - Lecture",
@@ -258,7 +258,7 @@
     },
     {
       "time": { "start": "12", "end": "13" },
-      "module": "MATH60024 - Computational Linear Algebra / MATH70024 - Computational Linear Algebra",
+      "module": "MATH60024/MATH70024 - Computational Linear Algebra",
       "location": "HXLY 342",
       "staff": "Broms, Anna",
       "event_category": "T - Lecture",
@@ -267,7 +267,7 @@
     },
     {
       "time": { "start": "12", "end": "14" },
-      "module": "MATH60012 - Mathematical Finance: An Introduction to Option Pricing / MATH70012 - Mathematical Finance: An Introduction to Option Pricing",
+      "module": "MATH60012/MATH70012 - Mathematical Finance: An Introduction to Option Pricing",
       "location": "HXLY 340",
       "staff": "Siorpaes, Pietro",
       "event_category": "T - Lecture",
@@ -276,7 +276,7 @@
     },
     {
       "time": { "start": "13", "end": "14" },
-      "module": "MATH60147 - Statistical Mechanics / MATH70147 - Statistical Mechanics",
+      "module": "MATH60147/MATH70147 - Statistical Mechanics",
       "location": "HXLY 144",
       "staff": "Bertrand, Thibault",
       "event_category": "T - Lecture",
@@ -285,7 +285,7 @@
     },
     {
       "time": { "start": "13", "end": "14" },
-      "module": "MATH60038 - Graph Theory; MATH70038 - Graph Theory",
+      "module": "MATH60038/MATH70038 - Graph Theory",
       "location": "HXLY 140",
       "staff": "Zordan, Michele",
       "event_category": "T - Lecture",
@@ -294,7 +294,7 @@
     },
     {
       "time": { "start": "13", "end": "14" },
-      "module": "MATH60130 - Stochastic Differential Equations in Financial Modelling; MATH70130 - Stochastic Differential Equations in Financial Modelling",
+      "module": "MATH60130/MATH70130 - Stochastic Differential Equations in Financial Modelling",
       "location": "HXLY 213 - Clore Lecture Theatre",
       "staff": "Brigo, Damiano",
       "event_category": "T - Lecture",
@@ -303,7 +303,7 @@
     },
     {
       "time": { "start": "13", "end": "14" },
-      "module": "MATH60016 - Special Relativity and Electromagnetism; MATH70016 - Special Relativity and Electromagnetism",
+      "module": "MATH60016/MATH70016 - Special Relativity and Electromagnetism",
       "location": "HXLY 130",
       "staff": "Pruessner, Gunnar",
       "event_category": "T - Lecture",
@@ -313,7 +313,7 @@
 
     {
       "time": { "start": "14", "end": "16" },
-      "module": "MATH60036 - Group Theory / MATH70036 - Group Theory",
+      "module": "MATH60036/MATH70036 - Group Theory",
       "location": "HXLY 140",
       "staff": "Kansal, Kalyani",
       "event_category": "T - Lecture",
@@ -322,7 +322,7 @@
     },
     {
       "time": { "start": "14", "end": "15" },
-      "module": "MATH60130 - Stochastic Differential Equations in Financial Modelling; MATH70130 - Stochastic Differential Equations in Financial Modelling",
+      "module": "MATH60130/MATH70130 - Stochastic Differential Equations in Financial Modelling",
       "location": "HXLY 340",
       "staff": "Brigo, Damiano",
       "event_category": "T - Lecture",
@@ -331,7 +331,7 @@
     },
     {
       "time": { "start": "15", "end": "17" },
-      "module": "MATH60004 - Asymptotic Methods / MATH70004 - Asymptotic Methods",
+      "module": "MATH60004/MATH70004 - Asymptotic Methods",
       "location": "HXLY 144 (Wk 1); HXLY 642 (Except wk 1)",
       "staff": "Schnitzer, Ory",
       "event_category": "T - Lecture",
@@ -349,7 +349,7 @@
     },
     {
       "time": { "start": "16", "end": "18" },
-      "module": "MATH60015 - Quantum Mechanics I / MATH70015 - Quantum Mechanics I",
+      "module": "MATH60015/MATH70015 - Quantum Mechanics I",
       "location": "HXLY 340",
       "staff": "Graefe, Eva-Maria",
       "event_category": "T - Lecture",
@@ -358,7 +358,7 @@
     },
     {
       "time": { "start": "16", "end": "18" },
-      "module": "MATH60029 - Functional Analysis / MATH70029 - Functional Analysis",
+      "module": "MATH60029/MATH70029 - Functional Analysis",
       "location": "HXLY 130",
       "staff": "Germain, Pierre M",
       "event_category": "T - Lecture",
